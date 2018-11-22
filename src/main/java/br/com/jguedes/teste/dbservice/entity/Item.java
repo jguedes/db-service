@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity
+@Entity(name="item")
 public class Item {
 
 	@Id
@@ -18,25 +18,25 @@ public class Item {
 	@ManyToOne
 	private Folha folha;
 
-	@Column
+	@Column(name="seq")
 	private int seq;
 
 	@ManyToOne
 	private Conta conta;
 
-	@Column
+	@Column(name="desc")
 	private String descr;
 
-	@Column
+	@Column(name="valor")
 	private Double valor;
 
-	@Column
+	@Column(name="comp")
 	private String comp;
 
-	@Column
+	@Column(name="obser")
 	private String obser;
 	
-	@Column
+	@Column(name="dt_cadastro")
 	private LocalDate dtCadastro;
 
 }

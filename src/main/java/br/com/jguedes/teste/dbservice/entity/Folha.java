@@ -20,13 +20,13 @@ public class Folha {
 	@ManyToOne
 	private RelatorioMensal relatorio;
 	
-	@Column
+	@Column(name="assintura1")
 	private String assinatura1;
 
-	@Column
+	@Column(name="assintura2")
 	private String assinatura2;
 	
-	@Column
+	@Column(name="dt_fechamento")
 	private LocalDate dtFechamento;
 	
 	@OneToMany
