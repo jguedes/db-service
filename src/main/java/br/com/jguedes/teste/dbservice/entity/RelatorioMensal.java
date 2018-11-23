@@ -1,5 +1,6 @@
 package br.com.jguedes.teste.dbservice.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -8,13 +9,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="relatorio_mensal")
-public class RelatorioMensal {
+@Table(name = "relatorio_mensal")
+public class RelatorioMensal implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +35,9 @@ public class RelatorioMensal {
 	@Column(name = "dt_fechamento")
 	private LocalDate dtFechamento;
 
-	@OneToMany(mappedBy="relatorio")
+	@JsonIgnore
+	@OneToMany()
+    @JoinColumn(name = "relatorio_mensal_id")
 	private List<Folha> folhas;
 
 	@Transient

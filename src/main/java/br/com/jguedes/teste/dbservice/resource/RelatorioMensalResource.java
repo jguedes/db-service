@@ -24,7 +24,7 @@ public class RelatorioMensalResource {
 		return relatorioMensalRepository.findAll();
 	}
 	
-	@PostMapping(value="/load")
+	@PostMapping(value="/save")
 	public List<RelatorioMensal> persist(@RequestBody final RelatorioMensal relatorio){
 		relatorioMensalRepository.save(relatorio);
 		return relatorioMensalRepository.findAll();

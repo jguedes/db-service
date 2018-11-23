@@ -24,7 +24,7 @@ public class ContaResource {
 		return contaRepository.findAll();
 	}
 	
-	@PostMapping(value="/load")
+	@PostMapping(value="/save")
 	public List<Conta> persist(@RequestBody final Conta conta){
 		contaRepository.save(conta);
 		return contaRepository.findAll();

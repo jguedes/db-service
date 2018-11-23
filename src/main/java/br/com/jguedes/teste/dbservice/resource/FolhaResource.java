@@ -24,7 +24,7 @@ public class FolhaResource {
 		return folhaRepository.findAll();
 	}
 	
-	@PostMapping(value="/load")
+	@PostMapping(value="/save")
 	public List<Folha> persist(@RequestBody final Folha folha){
 		folhaRepository.save(folha);
 		return folhaRepository.findAll();

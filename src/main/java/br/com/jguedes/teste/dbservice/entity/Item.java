@@ -1,38 +1,39 @@
 package br.com.jguedes.teste.dbservice.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 @Entity
 @Table(name = "item")
-public class Item {
+public class Item implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@ManyToOne(cascade=CascadeType.ALL)   
-	@JoinColumn(name="folha_id", referencedColumnName="id",nullable=false)
-	private Folha folha;
+	@Column(name = "folha_id")
+	private long folha_id;
 
 	@Column(name = "seq")
 	private int seq;
 
-	@ManyToOne(cascade=CascadeType.ALL)   
-	@JoinColumn(name="conta_id", referencedColumnName="id",nullable=false)
-	private Conta conta;
+	@Column(name = "conta_id")
+	private long conta_id;
 
-	@Column(name = "desc")
-	private String descr;
+	@Column(name = "discr")
+	private String discr;
 
 	@Column(name = "valor")
 	private Double valor;
@@ -43,8 +44,9 @@ public class Item {
 	@Column(name = "obser")
 	private String obser;
 
+	@JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
 	@Column(name = "dt_cadastro")
-	private LocalDate dtCadastro;
+	private LocalDate dtCadastro = LocalDate.now();
 
 	public long getId() {
 		return id;
@@ -54,12 +56,12 @@ public class Item {
 		this.id = id;
 	}
 
-	public Folha getFolha() {
-		return folha;
+	public long getFolha_id() {
+		return folha_id;
 	}
 
-	public void setFolha(Folha folha) {
-		this.folha = folha;
+	public void setFolha_id(long folha_id) {
+		this.folha_id = folha_id;
 	}
 
 	public int getSeq() {
@@ -70,20 +72,20 @@ public class Item {
 		this.seq = seq;
 	}
 
-	public Conta getConta() {
-		return conta;
+	public long getConta_id() {
+		return conta_id;
 	}
 
-	public void setConta(Conta conta) {
-		this.conta = conta;
+	public void setConta_id(long conta_id) {
+		this.conta_id = conta_id;
 	}
 
-	public String getDescr() {
-		return descr;
+	public String getDiscr() {
+		return discr;
 	}
 
-	public void setDescr(String descr) {
-		this.descr = descr;
+	public void setDiscr(String discr) {
+		this.discr = discr;
 	}
 
 	public Double getValor() {

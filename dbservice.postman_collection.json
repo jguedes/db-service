@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "16965c35-7284-44ee-9daf-52173cca2fca",
+		"name": "dbservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "conta/save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/conta/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"conta",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "conta/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/conta/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"conta",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "relatoriomensal/save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"ano\": \"2018\",\n\t\"mes\": \"11\",\n    \"folhas\": [{\n\t\t\"relatorio\":{ \"id\":\"1\"},\n\t\t\"tipo\":\"e\",\n\t\t\"num\": \"1\"\n\t}]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/relatoriomensal/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"relatoriomensal",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "relatoriomensal/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/relatoriomensal/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"relatoriomensal",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "folha/save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"relatorio\":{ \"id\":\"1\"},\n\t\"tipo\":\"e\",\n\t\"num\": \"1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/folha/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"folha",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "folha/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/folha/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"folha",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/item/save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"folha_id\":1,\n\t\"seq\":1,\n\t\"conta_id\":1,\n\t\"discr\":\"descricao do item 1\",\n\t\"valor\":123.12,\n\t\"obser\":\"sdfads asdf asd\",\n\t\"dtCadastro\":\"23-11-2018\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/item/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"item",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/item/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"item",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

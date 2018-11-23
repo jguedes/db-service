@@ -1,41 +1,48 @@
 package br.com.jguedes.teste.dbservice.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "folha")
-public class Folha {
+public class Folha implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@ManyToOne(cascade=CascadeType.ALL)   
-	@JoinColumn(name="relatorio_mensal_id", referencedColumnName="id",nullable=false)
-	private RelatorioMensal relatorio;
+	@Column(name = "relatorio_mensal_id")
+	private long relatorio_mensal_id;
 
-	@Column(name = "assintura1")
+	@Column(name = "tipo")
+	private char tipo;
+
+	@Column(name = "num")
+	private int num;
+
+	@Column(name = "assinatura1")
 	private String assinatura1;
 
-	@Column(name = "assintura2")
+	@Column(name = "assinatura2")
 	private String assinatura2;
 
 	@Column(name = "dt_fechamento")
 	private LocalDate dtFechamento;
 
-	@OneToMany(mappedBy="folha")
+	@OneToMany()
+	@JoinColumn(name = "folha_id")
 	private List<Item> itens;
 
 	public long getId() {
@@ -46,12 +53,28 @@ public class Folha {
 		this.id = id;
 	}
 
-	public RelatorioMensal getRelatorio() {
-		return relatorio;
+	public long getRelatorio_mensal_id() {
+		return relatorio_mensal_id;
 	}
 
-	public void setRelatorio(RelatorioMensal relatorio) {
-		this.relatorio = relatorio;
+	public void setRelatorio_mensal_id(long relatorio_mensal_id) {
+		this.relatorio_mensal_id = relatorio_mensal_id;
+	}
+
+	public char getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(char tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public String getAssinatura1() {

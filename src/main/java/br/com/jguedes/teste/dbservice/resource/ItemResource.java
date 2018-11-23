@@ -24,7 +24,7 @@ public class ItemResource {
 		return itemRepository.findAll();
 	}
 	
-	@PostMapping(value="/load")
+	@PostMapping(value="/save")
 	public List<Item> persist(@RequestBody final Item item){
 		itemRepository.save(item);
 		return itemRepository.findAll();
