@@ -1,10 +1,30 @@
 spring:
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/teste
+    url: jdbc:mysql://localhost:3306/dbservice?useTimezone=true&serverTimezone=UTC
     username: root
     password: 1234
+    tomcat:
+      max-wait: 20000
+      max-active: 50
+      max-idle: 20
+      min-idle: 15
+      
   jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        id.new_generator_mappings: false
+        format_sql: true
     hibernate.ddl-auto: update
-    generate-ddl: true
+    generate-ddl: false
     show-sql: true
+    
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

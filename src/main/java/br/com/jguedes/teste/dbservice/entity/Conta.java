@@ -24,7 +24,7 @@ public class Conta {
 	@Column(name = "titulo")
 	private String titulo;
 
-	@OneToMany
+	@OneToMany(mappedBy="conta")
 	private List<Item> itens;
 
 	public long getId() {

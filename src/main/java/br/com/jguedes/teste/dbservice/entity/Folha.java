@@ -3,11 +3,13 @@ package br.com.jguedes.teste.dbservice.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,7 +22,8 @@ public class Folha {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)   
+	@JoinColumn(name="relatorio_mensal_id", referencedColumnName="id",nullable=false)
 	private RelatorioMensal relatorio;
 
 	@Column(name = "assintura1")
@@ -32,7 +35,7 @@ public class Folha {
 	@Column(name = "dt_fechamento")
 	private LocalDate dtFechamento;
 
-	@OneToMany
+	@OneToMany(mappedBy="folha")
 	private List<Item> itens;
 
 	public long getId() {

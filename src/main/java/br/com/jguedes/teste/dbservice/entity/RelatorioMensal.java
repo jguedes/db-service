@@ -10,9 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name = "relatorio_mensal")
+@Table(name="relatorio_mensal")
 public class RelatorioMensal {
 
 	@Id
@@ -28,10 +29,13 @@ public class RelatorioMensal {
 	@Column(name = "dt_fechamento")
 	private LocalDate dtFechamento;
 
-	@OneToMany
+	@OneToMany(mappedBy="relatorio")
+	private List<Folha> folhas;
+
+	@Transient
 	private List<Folha> folhasEntrada;
 
-	@OneToMany
+	@Transient
 	private List<Folha> folhasSaida;
 
 	public long getId() {
@@ -64,6 +68,14 @@ public class RelatorioMensal {
 
 	public void setDtFechamento(LocalDate dtFechamento) {
 		this.dtFechamento = dtFechamento;
+	}
+
+	public List<Folha> getFolhas() {
+		return folhas;
+	}
+
+	public void setFolhas(List<Folha> folhas) {
+		this.folhas = folhas;
 	}
 
 	public List<Folha> getFolhasEntrada() {
