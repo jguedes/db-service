@@ -1,33 +1,72 @@
 package br.com.jguedes.teste.dbservice.resource;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jguedes.teste.dbservice.entity.RelatorioMensal;
 import br.com.jguedes.teste.dbservice.repository.RelatorioMensalRepository;
+import br.com.jguedes.teste.dbservice.response.RelatorioMensalResponse;
 
 @RestController
-@RequestMapping(value="/rest/relatoriomensal")
+@RequestMapping(value = "/rest/relatoriomensal")
 public class RelatorioMensalResource {
-	
+
 	@Autowired
-	private RelatorioMensalRepository relatorioMensalRepository;
-	
+	private RelatorioMensalRepository rep;
+
 	@GetMapping(value = "/all")
-	public List<RelatorioMensal> getAll(){
-		return relatorioMensalRepository.findAll();
+	public List<RelatorioMensalResponse> getAll() {
+		return getListRelatorioMensalResponse(rep.findAll());
 	}
-	
-	@PostMapping(value="/save")
-	public List<RelatorioMensal> persist(@RequestBody final RelatorioMensal relatorio){
-		relatorioMensalRepository.save(relatorio);
-		return relatorioMensalRepository.findAll();
+
+	@GetMapping(value = "/getRelatorioMensalById")
+	public RelatorioMensalResponse getRelatorioMensalById(@RequestParam Long id) {
+		Optional<RelatorioMensal> opt_rel = rep.findById(id);
+		return opt_rel.isPresent() ? getRelatorioMensalResponse(opt_rel.get()) : null;
+	}
+
+	@GetMapping(value = "/getRelatoriosMensaisByAno")
+	public List<RelatorioMensalResponse> getRelatoriosMensaisByAno(@RequestParam final Integer ano) {
+		return getListRelatorioMensalResponse(
+				rep.findAll().stream().filter(r -> r.getAno() == ano).collect(Collectors.toList()));
+	}
+
+	@GetMapping(value = "/getRelatorioMensalByAnoAndMes")
+	public List<RelatorioMensalResponse> getRelatoriosMensaisByAno(@RequestParam final Integer ano,
+			@RequestParam final Integer mes) {
+		return getListRelatorioMensalResponse(rep.findAll().stream().filter(r -> r.getAno() == ano && r.getMes() == mes)
+				.collect(Collectors.toList()));
+	}
+
+	@PostMapping(value = "/save")
+	public List<RelatorioMensalResponse> persist(@RequestBody final RelatorioMensal relatorio) {
+		rep.save(relatorio);
+		return getListRelatorioMensalResponse(rep.findAll());
+	}
+
+	private List<RelatorioMensalResponse> getListRelatorioMensalResponse(final List<RelatorioMensal> lista) {
+
+		List<RelatorioMensalResponse> retorno = new ArrayList<>();
+
+		for (RelatorioMensal r : lista) {
+			retorno.add(getRelatorioMensalResponse(r));
+		}
+
+		return retorno;
+	}
+
+	private RelatorioMensalResponse getRelatorioMensalResponse(final RelatorioMensal relatorioMensal) {
+		return new RelatorioMensalResponse(relatorioMensal);
 	}
 
 }

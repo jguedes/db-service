@@ -28,6 +28,12 @@ public class Conta implements Serializable {
 	@Column(name = "titulo")
 	private String titulo;
 
+	@Column(name = "descricao")
+	private String descricao;
+
+	@Column(name = "ordem")
+	private int ordem;
+
 	@OneToMany()
 	@JoinColumn(name = "conta_id")
 	private List<Item> itens;
@@ -54,6 +60,22 @@ public class Conta implements Serializable {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public int getOrdem() {
+		return ordem;
+	}
+
+	public void setOrdem(int ordem) {
+		this.ordem = ordem;
 	}
 
 	public List<Item> getItens() {

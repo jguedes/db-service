@@ -1,230 +1,521 @@
 {
 	"info": {
-		"_postman_id": "16965c35-7284-44ee-9daf-52173cca2fca",
+		"_postman_id": "9bd7b247-01c4-41f2-94f7-56be405e1286",
 		"name": "dbservice",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "conta/save",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+			"name": "conta",
+			"item": [
+				{
+					"name": "conta/save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/conta/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"conta",
+								"save"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/rest/conta/save",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"rest",
-						"conta",
-						"save"
-					]
+				{
+					"name": "conta/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/conta/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"conta",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContaById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/conta/getContaById?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"conta",
+								"getContaById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContasEntrada",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/conta/getContasEntrada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"conta",
+								"getContasEntrada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getContasSaida",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/conta/getContasSaida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"conta",
+								"getContasSaida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchContasByTitulo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/conta/searchContasByTitulo?texto=encar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"conta",
+								"searchContasByTitulo"
+							],
+							"query": [
+								{
+									"key": "texto",
+									"value": "encar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchContasEntradaByTitulo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/conta/searchContasEntradaByTitulo?texto=of",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"conta",
+								"searchContasEntradaByTitulo"
+							],
+							"query": [
+								{
+									"key": "texto",
+									"value": "of"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchContasSaidaByTitulo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/conta/searchContasSaidaByTitulo?texto=enc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"conta",
+								"searchContasSaidaByTitulo"
+							],
+							"query": [
+								{
+									"key": "texto",
+									"value": "enc"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "conta/all",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+			"name": "relatorioMensal",
+			"item": [
+				{
+					"name": "relatoriomensal/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"1\",\n\t\"ano\": \"2018\",\n\t\"mes\": \"11\",\n    \"folhas\": [{\n\t\t\"relatorio\":{ \"id\":\"1\"},\n\t\t\"tipo\":\"e\",\n\t\t\"num\": \"1\"\n\t}]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/relatoriomensal/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"relatoriomensal",
+								"save"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/rest/conta/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"rest",
-						"conta",
-						"all"
-					]
+				{
+					"name": "relatoriomensal/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/relatoriomensal/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"relatoriomensal",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRelatorioMensalById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/relatoriomensal/getRelatorioMensalById?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"relatoriomensal",
+								"getRelatorioMensalById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRelatorioMensalByAnoAndMes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/relatoriomensal/getRelatorioMensalByAnoAndMes?ano=2016&mes=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"relatoriomensal",
+								"getRelatorioMensalByAnoAndMes"
+							],
+							"query": [
+								{
+									"key": "ano",
+									"value": "2016"
+								},
+								{
+									"key": "mes",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRelatoriosMensaisByAno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/relatoriomensal/getRelatoriosMensaisByAno?ano=2015",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"relatoriomensal",
+								"getRelatoriosMensaisByAno"
+							],
+							"query": [
+								{
+									"key": "ano",
+									"value": "2015"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "relatoriomensal/save",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\":\"1\",\n\t\"ano\": \"2018\",\n\t\"mes\": \"11\",\n    \"folhas\": [{\n\t\t\"relatorio\":{ \"id\":\"1\"},\n\t\t\"tipo\":\"e\",\n\t\t\"num\": \"1\"\n\t}]\n}"
+			"name": "folha",
+			"item": [
+				{
+					"name": "folha/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"relatorio\":{ \"id\":\"1\"},\n\t\"tipo\":\"e\",\n\t\"num\": \"1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/folha/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"folha",
+								"save"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/rest/relatoriomensal/save",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"rest",
-						"relatoriomensal",
-						"save"
-					]
+				{
+					"name": "folha/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/folha/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"folha",
+								"all"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "relatoriomensal/all",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+			"name": "item",
+			"item": [
+				{
+					"name": "/item/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"folha_id\":1,\n\t\"seq\":1,\n\t\"conta_id\":1,\n\t\"discr\":\"descricao do item 1\",\n\t\"valor\":123.12,\n\t\"obser\":\"sdfads asdf asd\",\n\t\"dtCadastro\":\"23-11-2018\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/item/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"item",
+								"save"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/rest/relatoriomensal/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"rest",
-						"relatoriomensal",
-						"all"
-					]
+				{
+					"name": "item/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/item/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"item",
+								"all"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "folha/save",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"relatorio\":{ \"id\":\"1\"},\n\t\"tipo\":\"e\",\n\t\"num\": \"1\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:8080/rest/folha/save",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"rest",
-						"folha",
-						"save"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "folha/all",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/rest/folha/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"rest",
-						"folha",
-						"all"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/item/save",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"folha_id\":1,\n\t\"seq\":1,\n\t\"conta_id\":1,\n\t\"discr\":\"descricao do item 1\",\n\t\"valor\":123.12,\n\t\"obser\":\"sdfads asdf asd\",\n\t\"dtCadastro\":\"23-11-2018\"\n}"
-				},
-				"url": {
-					"raw": "http://localhost:8080/rest/item/save",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"rest",
-						"item",
-						"save"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "item/all",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/rest/item/all",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"rest",
-						"item",
-						"all"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

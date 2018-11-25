@@ -23,6 +23,8 @@ CREATE TABLE `conta` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `tipo` char(1) NOT NULL,
   `titulo` varchar(100) NOT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
+  `ordem` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 CREATE TABLE `item` (

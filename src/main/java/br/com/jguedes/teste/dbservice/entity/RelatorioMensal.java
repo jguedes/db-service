@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -37,14 +36,8 @@ public class RelatorioMensal implements Serializable {
 
 	@JsonIgnore
 	@OneToMany()
-    @JoinColumn(name = "relatorio_mensal_id")
+	@JoinColumn(name = "relatorio_mensal_id")
 	private List<Folha> folhas;
-
-	@Transient
-	private List<Folha> folhasEntrada;
-
-	@Transient
-	private List<Folha> folhasSaida;
 
 	public long getId() {
 		return id;
@@ -84,22 +77,6 @@ public class RelatorioMensal implements Serializable {
 
 	public void setFolhas(List<Folha> folhas) {
 		this.folhas = folhas;
-	}
-
-	public List<Folha> getFolhasEntrada() {
-		return folhasEntrada;
-	}
-
-	public void setFolhasEntrada(List<Folha> folhasEntrada) {
-		this.folhasEntrada = folhasEntrada;
-	}
-
-	public List<Folha> getFolhasSaida() {
-		return folhasSaida;
-	}
-
-	public void setFolhasSaida(List<Folha> folhasSaida) {
-		this.folhasSaida = folhasSaida;
 	}
 
 }
