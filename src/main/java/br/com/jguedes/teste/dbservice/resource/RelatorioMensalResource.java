@@ -66,7 +66,8 @@ public class RelatorioMensalResource {
 	}
 
 	private RelatorioMensalResponse getRelatorioMensalResponse(final RelatorioMensal relatorioMensal) {
-		return new RelatorioMensalResponse(relatorioMensal);
+		RelatorioMensalResponse rm = new RelatorioMensalResponse(relatorioMensal);
+		return rm;
 	}
 
 }

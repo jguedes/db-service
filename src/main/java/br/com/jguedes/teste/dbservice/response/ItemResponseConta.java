@@ -1,6 +1,7 @@
 package br.com.jguedes.teste.dbservice.response;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import br.com.jguedes.teste.dbservice.entity.Item;
@@ -17,7 +18,7 @@ public class ItemResponseConta implements Serializable {
 	public long getId() {
 		return item.getId();
 	}
-	
+
 	public long getFolha_id() {
 		return item.getFolha_id();
 	}
@@ -30,8 +31,9 @@ public class ItemResponseConta implements Serializable {
 		return item.getDiscr();
 	}
 
-	public Double getValor() {
-		return item.getValor();
+	public BigDecimal getValor() {
+		BigDecimal b = BigDecimal.valueOf(item.getValor());
+		return b;
 	}
 
 	public String getComp() {
@@ -45,5 +47,5 @@ public class ItemResponseConta implements Serializable {
 	public LocalDate getDtCadastro() {
 		return item.getDtCadastro();
 	}
-	
+
 }

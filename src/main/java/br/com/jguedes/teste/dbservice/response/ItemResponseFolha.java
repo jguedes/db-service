@@ -32,7 +32,7 @@ public class ItemResponseFolha implements Serializable {
 	}
 
 	public BigDecimal getValor() {
-		BigDecimal b = BigDecimal.valueOf(item.getValor()); 
+		BigDecimal b = BigDecimal.valueOf(item.getValor());
 		return b;
 	}
 
@@ -47,5 +47,5 @@ public class ItemResponseFolha implements Serializable {
 	public LocalDate getDtCadastro() {
 		return item.getDtCadastro();
 	}
-	
+
 }
