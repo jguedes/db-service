@@ -3,7 +3,6 @@ package br.com.jguedes.teste.dbservice.resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.jguedes.teste.dbservice.entity.RelatorioMensal;
 import br.com.jguedes.teste.dbservice.repository.RelatorioMensalRepository;
 import br.com.jguedes.teste.dbservice.response.RelatorioMensalResponse;
+import br.com.jguedes.teste.dbservice.response.RelatoriosMensaisResponse;
+import br.com.jguedes.teste.dbservice.service.RelatorioMensalService;
 
 @RestController
 @RequestMapping(value = "/rest/relatoriomensal")
@@ -23,6 +24,9 @@ public class RelatorioMensalResource {
 
 	@Autowired
 	private RelatorioMensalRepository rep;
+
+	@Autowired
+	private RelatorioMensalService service;
 
 	@GetMapping(value = "/all")
 	public List<RelatorioMensalResponse> getAll() {
@@ -36,16 +40,14 @@ public class RelatorioMensalResource {
 	}
 
 	@GetMapping(value = "/getRelatoriosMensaisByAno")
-	public List<RelatorioMensalResponse> getRelatoriosMensaisByAno(@RequestParam final Integer ano) {
-		return getListRelatorioMensalResponse(
-				rep.findAll().stream().filter(r -> r.getAno() == ano).collect(Collectors.toList()));
+	public RelatoriosMensaisResponse getRelatoriosMensaisByAno(@RequestParam final Integer ano) {
+		return service.getListRelatorioMensalResponse(ano);
 	}
 
 	@GetMapping(value = "/getRelatorioMensalByAnoAndMes")
-	public List<RelatorioMensalResponse> getRelatoriosMensaisByAno(@RequestParam final Integer ano,
+	public RelatoriosMensaisResponse getRelatoriosMensaisByAno(@RequestParam final Integer ano,
 			@RequestParam final Integer mes) {
-		return getListRelatorioMensalResponse(rep.findAll().stream().filter(r -> r.getAno() == ano && r.getMes() == mes)
-				.collect(Collectors.toList()));
+		return service.getListRelatorioMensalResponse(ano, mes);
 	}
 
 	@PostMapping(value = "/save")
@@ -67,6 +69,7 @@ public class RelatorioMensalResource {
 
 	private RelatorioMensalResponse getRelatorioMensalResponse(final RelatorioMensal relatorioMensal) {
 		RelatorioMensalResponse rm = new RelatorioMensalResponse(relatorioMensal);
+
 		return rm;
 	}
 
