@@ -1,6 +1,7 @@
 package br.com.jguedes.teste.dbservice.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,10 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import br.com.jguedes.teste.dbservice.response.relatorio.Valuable;
 
 @Entity
 @Table(name = "folha")
-public class Folha implements Serializable {
+public class Folha implements Valuable, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -107,6 +111,12 @@ public class Folha implements Serializable {
 
 	public void setItens(List<Item> itens) {
 		this.itens = itens;
+	}
+
+	@Transient
+	@Override
+	public BigDecimal getValor() {
+		return itens.stream().map(Valuable::getValor).reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
 
 }

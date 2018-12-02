@@ -1,4 +1,4 @@
-package br.com.jguedes.teste.dbservice.response;
+package br.com.jguedes.teste.dbservice.response.relatorio;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -6,12 +6,12 @@ import java.time.LocalDate;
 
 import br.com.jguedes.teste.dbservice.entity.Item;
 
-public class ItemResponseFolha implements Serializable {
+public class ItemFolhaEntradaResponse implements Valuable, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Item item;
+	protected Item item;
 
-	public ItemResponseFolha(final Item item) {
+	public ItemFolhaEntradaResponse(final Item item) {
 		this.item = item;
 	}
 
@@ -33,10 +33,6 @@ public class ItemResponseFolha implements Serializable {
 
 	public BigDecimal getValor() {
 		return item.getValor();
-	}
-
-	public String getComp() {
-		return item.getComp();
 	}
 
 	public String getObser() {

@@ -1,6 +1,7 @@
 package br.com.jguedes.teste.dbservice.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -13,9 +14,11 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
+import br.com.jguedes.teste.dbservice.response.relatorio.Valuable;
+
 @Entity
 @Table(name = "item")
-public class Item implements Serializable {
+public class Item implements Valuable, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -36,7 +39,7 @@ public class Item implements Serializable {
 	private String discr;
 
 	@Column(name = "valor")
-	private Double valor;
+	private BigDecimal valor;
 
 	@Column(name = "comp")
 	private String comp;
@@ -88,11 +91,11 @@ public class Item implements Serializable {
 		this.discr = discr;
 	}
 
-	public Double getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 

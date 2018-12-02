@@ -1,12 +1,13 @@
-package br.com.jguedes.teste.dbservice.response;
+package br.com.jguedes.teste.dbservice.response.relatorio;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
 import br.com.jguedes.teste.dbservice.entity.Conta;
+import br.com.jguedes.teste.dbservice.response.ItemResponseConta;
 
-public class ContaResponse implements Serializable {
+public class ContaRelatorioResponse implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -16,7 +17,7 @@ public class ContaResponse implements Serializable {
 
 	private BigDecimal totalConta;
 
-	public ContaResponse(final Conta conta) {
+	public ContaRelatorioResponse(final Conta conta) {
 		this.conta = conta;
 	}
 
@@ -24,16 +25,8 @@ public class ContaResponse implements Serializable {
 		return conta.getId();
 	}
 
-	public char getTipo() {
-		return conta.getTipo();
-	}
-
 	public String getTitulo() {
 		return conta.getTitulo();
-	}
-
-	public String getDescricao() {
-		return conta.getDescricao();
 	}
 
 	public int getOrdem() {

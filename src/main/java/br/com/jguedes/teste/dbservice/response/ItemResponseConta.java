@@ -32,8 +32,7 @@ public class ItemResponseConta implements Serializable {
 	}
 
 	public BigDecimal getValor() {
-		BigDecimal b = BigDecimal.valueOf(item.getValor());
-		return b;
+		return item.getValor();
 	}
 
 	public String getComp() {

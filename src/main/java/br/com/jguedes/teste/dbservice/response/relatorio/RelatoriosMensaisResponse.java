@@ -1,4 +1,4 @@
-package br.com.jguedes.teste.dbservice.response;
+package br.com.jguedes.teste.dbservice.response.relatorio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
