@@ -1,13 +1,16 @@
 package br.com.jguedes.teste.dbservice.response.folha;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import br.com.jguedes.teste.dbservice.constantes.TipoMovimentacao;
 import br.com.jguedes.teste.dbservice.entity.Folha;
 
-public class FullFolhasResponse {
+public class FullFolhasResponse implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private FolhasEntradaResponse folhasEntrada;
 	private FolhasSaidaResponse folhasSaida;
 
