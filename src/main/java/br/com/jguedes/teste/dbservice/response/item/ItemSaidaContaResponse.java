@@ -1,12 +1,12 @@
-package br.com.jguedes.teste.dbservice.response.relatorio;
+package br.com.jguedes.teste.dbservice.response.item;
 
 import br.com.jguedes.teste.dbservice.entity.Item;
 
-public class ItemFolhaSaidaResponse extends ItemFolhaEntradaResponse {
+public class ItemSaidaContaResponse extends ItemContaResponse {
 
 	private static final long serialVersionUID = 1L;
 
-	public ItemFolhaSaidaResponse(Item item) {
+	public ItemSaidaContaResponse(Item item) {
 		super(item);
 	}
 

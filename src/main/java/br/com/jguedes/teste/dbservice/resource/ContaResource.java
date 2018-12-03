@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jguedes.teste.dbservice.entity.Conta;
 import br.com.jguedes.teste.dbservice.repository.ContaRepository;
-import br.com.jguedes.teste.dbservice.response.ContaResponse;
+import br.com.jguedes.teste.dbservice.response.conta.ContaResponse;
 
 @RestController
 @RequestMapping(value = "/rest/conta")

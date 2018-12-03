@@ -1,4 +1,4 @@
-package br.com.jguedes.teste.dbservice.response.relatorio;
+package br.com.jguedes.teste.dbservice.response.folha;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -6,14 +6,15 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.jguedes.teste.dbservice.commons.Valuable;
 import br.com.jguedes.teste.dbservice.entity.Folha;
 
-public abstract class FolhaRelatorioResponse implements Serializable, Valuable {
+public abstract class FolhaWithoutGetTipoResponse implements Serializable, Valuable {
 
 	private static final long serialVersionUID = 1L;
 	protected Folha folha;
 
-	public FolhaRelatorioResponse(final Folha folha) {
+	public FolhaWithoutGetTipoResponse(final Folha folha) {
 		this.folha = folha;
 	}
 

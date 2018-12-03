@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.jguedes.teste.dbservice.constantes.TipoMovimentacao;
 import br.com.jguedes.teste.dbservice.entity.RelatorioMensal;
 import br.com.jguedes.teste.dbservice.repository.RelatorioMensalRepository;
 import br.com.jguedes.teste.dbservice.response.relatorio.RelatorioMensalResponse;
@@ -17,7 +16,8 @@ public class RelatorioMensalService {
 
 	@Autowired
 	private RelatorioMensalRepository rep;
-	@Autowired ContaService serviceConta;
+	@Autowired
+	ContaService serviceConta;
 
 	public RelatoriosMensaisResponse saveAndGetAll(RelatorioMensal relatorio) {
 		rep.save(relatorio);
@@ -27,13 +27,13 @@ public class RelatorioMensalService {
 	public RelatoriosMensaisResponse getAllListRelatorioMensalResponse() {
 		return getListRelatorioMensalResponse(rep.findAll());
 	}
-	
+
 	public RelatoriosMensaisResponse getListRelatorioMensalResponseByAno(Integer ano) {
 		return getListRelatorioMensalResponse(rep.findByAno(ano));
 	}
 
 	public RelatorioMensalResponse getRelatorioMensalResponseByAnoAndMes(Integer ano, Integer mes) {
-		Optional<RelatorioMensal> opt_rel = rep.findByAnoAndMes(ano,mes);
+		Optional<RelatorioMensal> opt_rel = rep.findByAnoAndMes(ano, mes);
 		return opt_rel.isPresent() ? getRelatorioMensalResponse(opt_rel.get()) : null;
 	}
 
@@ -54,36 +54,39 @@ public class RelatorioMensalService {
 	}
 
 	private RelatorioMensalResponse getRelatorioMensalResponse(final RelatorioMensal relatorioMensal) {
-		AnoMes ama = new AnoMes(relatorioMensal.getAno(),relatorioMensal.getMes()).getAnoMesAnterior();
-		relatorioMensal.setSaldoMesAnterior(rep.getSaldoRelatorioMensal(ama.getAno(),ama.getMes()));
+		AnoMes ama = new AnoMes(relatorioMensal.getAno(), relatorioMensal.getMes()).getAnoMesAnterior();
+		relatorioMensal.setSaldoMesAnterior(rep.getSaldoRelatorioMensal(ama.getAno(), ama.getMes()));
+
 		RelatorioMensalResponse rm = new RelatorioMensalResponse(relatorioMensal);
-		rm.setContasEntrada(serviceConta.getContaByRelatorioMensalIdAndTipo(rm.getId(), TipoMovimentacao.ENTRADA));
-		rm.setContasSaida(serviceConta.getContaByRelatorioMensalIdAndTipo(rm.getId(), TipoMovimentacao.SAIDA));
+		rm.setContasEntrada(serviceConta.getContasEntradaByRelatorioMensalId(rm.getId()));
+		rm.setContasSaida(serviceConta.getContasSaidaByRelatorioMensalId(rm.getId()));
 		return rm;
 	}
 
 }
-class AnoMes{
+
+class AnoMes {
 	private Integer ano;
 	private Integer mes;
+
 	public AnoMes(Integer ano, Integer mes) {
 		this.ano = ano;
 		this.mes = mes;
 	}
-	
+
 	public AnoMes getAnoMesAnterior() {
-		if(mes == 1) {
+		if (mes == 1) {
 			return new AnoMes(ano - 1, 12);
 		}
 		return new AnoMes(ano, mes - 1);
 	}
-	
+
 	public Integer getAno() {
 		return ano;
 	}
-	
+
 	public Integer getMes() {
 		return mes;
 	}
-	
+
 }

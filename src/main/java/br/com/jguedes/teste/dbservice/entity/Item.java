@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
-import br.com.jguedes.teste.dbservice.response.relatorio.Valuable;
+import br.com.jguedes.teste.dbservice.commons.Valuable;
 
 @Entity
 @Table(name = "item")

@@ -6,9 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.com.jguedes.teste.dbservice.constantes.TipoMovimentacao;
 import br.com.jguedes.teste.dbservice.entity.Conta;
 import br.com.jguedes.teste.dbservice.repository.ContaRepository;
-import br.com.jguedes.teste.dbservice.response.relatorio.ContaRelatorioResponse;
+import br.com.jguedes.teste.dbservice.response.conta.ContaEntradaResponse;
+import br.com.jguedes.teste.dbservice.response.conta.ContaSaidaResponse;
 
 @Component
 public class ContaService {
@@ -18,15 +20,22 @@ public class ContaService {
 	@Autowired
 	private ItemService serviceItem;
 
-	public List<ContaRelatorioResponse> getContaByRelatorioMensalIdAndTipo(Long retorioId, char tipo) {
-		List<Conta> contas = rep.getContasByRelatorioMensalId(retorioId, tipo);
-		List<ContaRelatorioResponse> response = new ArrayList<>();
-		for (Conta c : contas) {
-			ContaRelatorioResponse cr = new ContaRelatorioResponse(c);
-			cr.setItens(serviceItem.getItensByRelatorioMensalIdAndContaId(retorioId,cr.getId()));
-			response.add(cr);
+	public List<ContaEntradaResponse> getContasEntradaByRelatorioMensalId(Long retorioId) {
+		List<ContaEntradaResponse> contas = new ArrayList<>();
+		for (Conta conta : rep.getContasByRelatorioMensalId(retorioId, TipoMovimentacao.ENTRADA)) {
+			conta.setItens(serviceItem.getItensByRelatorioMensalIdAndContaId(retorioId, conta.getId()));
+			contas.add(new ContaEntradaResponse(conta));
 		}
-		return response;
+		return contas;
+	}
+
+	public List<ContaSaidaResponse> getContasSaidaByRelatorioMensalId(Long retorioId) {
+		List<ContaSaidaResponse> contas = new ArrayList<>();
+		for (Conta conta : rep.getContasByRelatorioMensalId(retorioId, TipoMovimentacao.SAIDA)) {
+			conta.setItens(serviceItem.getItensByRelatorioMensalIdAndContaId(retorioId, conta.getId()));
+			contas.add(new ContaSaidaResponse(conta));
+		}
+		return contas;
 	}
 
 }

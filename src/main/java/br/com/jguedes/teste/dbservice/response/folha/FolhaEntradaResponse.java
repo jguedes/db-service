@@ -1,4 +1,4 @@
-package br.com.jguedes.teste.dbservice.response.relatorio;
+package br.com.jguedes.teste.dbservice.response.folha;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,12 +6,13 @@ import java.util.Optional;
 
 import br.com.jguedes.teste.dbservice.entity.Folha;
 import br.com.jguedes.teste.dbservice.entity.Item;
+import br.com.jguedes.teste.dbservice.response.item.ItemFolhaEntradaResponse;
 
-public class FolhaEntradaRelatorioResponse extends FolhaRelatorioResponse {
+public class FolhaEntradaResponse extends FolhaWithoutGetTipoResponse {
 
 	private static final long serialVersionUID = 1L;
 
-	public FolhaEntradaRelatorioResponse(Folha folha) {
+	public FolhaEntradaResponse(Folha folha) {
 		super(folha);
 	}
 

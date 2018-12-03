@@ -11,6 +11,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.jguedes.teste.dbservice.entity.Folha;
 import br.com.jguedes.teste.dbservice.entity.RelatorioMensal;
+import br.com.jguedes.teste.dbservice.response.conta.ContaEntradaResponse;
+import br.com.jguedes.teste.dbservice.response.conta.ContaSaidaResponse;
+import br.com.jguedes.teste.dbservice.response.folha.FolhaEntradaResponse;
+import br.com.jguedes.teste.dbservice.response.folha.FolhaSaidaResponse;
 
 public class RelatorioMensalResponse implements Serializable {
 
@@ -19,8 +23,8 @@ public class RelatorioMensalResponse implements Serializable {
 	@JsonIgnore
 	private RelatorioMensal relatorioMensal;
 
-	private List<ContaRelatorioResponse> contasEntrada;
-	private List<ContaRelatorioResponse> contasSaida;
+	private List<ContaEntradaResponse> contasEntrada;
+	private List<ContaSaidaResponse> contasSaida;
 
 	public RelatorioMensalResponse(final RelatorioMensal relatorioMensal) {
 		this.relatorioMensal = relatorioMensal;
@@ -42,18 +46,18 @@ public class RelatorioMensalResponse implements Serializable {
 		return relatorioMensal.getDtFechamento();
 	}
 
-	public List<FolhaEntradaRelatorioResponse> getFolhasEntrada() {
-		List<FolhaEntradaRelatorioResponse> folhas = new ArrayList<>();
+	public List<FolhaEntradaResponse> getFolhasEntrada() {
+		List<FolhaEntradaResponse> folhas = new ArrayList<>();
 		for (Folha f : relatorioMensal.getFolhasEntrada()) {
-			folhas.add(new FolhaEntradaRelatorioResponse(f));
+			folhas.add(new FolhaEntradaResponse(f));
 		}
 		return folhas;
 	}
 
-	public List<FolhaSaidaRelatorioResponse> getFolhasSaida() {
-		List<FolhaSaidaRelatorioResponse> folhas = new ArrayList<>();
+	public List<FolhaSaidaResponse> getFolhasSaida() {
+		List<FolhaSaidaResponse> folhas = new ArrayList<>();
 		for (Folha f : relatorioMensal.getFolhasSaida()) {
-			folhas.add(new FolhaSaidaRelatorioResponse(f));
+			folhas.add(new FolhaSaidaResponse(f));
 		}
 		return folhas;
 	}
@@ -78,19 +82,19 @@ public class RelatorioMensalResponse implements Serializable {
 		return relatorioMensal.getSaldoEmCaixa().setScale(2, RoundingMode.HALF_EVEN);
 	}
 
-	public List<ContaRelatorioResponse> getContasSaida() {
+	public List<ContaSaidaResponse> getContasSaida() {
 		return contasSaida;
 	}
 
-	public void setContasSaida(List<ContaRelatorioResponse> contasSaida) {
+	public void setContasSaida(List<ContaSaidaResponse> contasSaida) {
 		this.contasSaida = contasSaida;
 	}
 
-	public void setContasEntrada(List<ContaRelatorioResponse> contasEntrada) {
+	public void setContasEntrada(List<ContaEntradaResponse> contasEntrada) {
 		this.contasEntrada = contasEntrada;
 	}
 
-	public List<ContaRelatorioResponse> getContasEntrada() {
+	public List<ContaEntradaResponse> getContasEntrada() {
 		return contasEntrada;
 	}
 

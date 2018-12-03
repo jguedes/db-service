@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import br.com.jguedes.teste.dbservice.response.relatorio.Valuable;
+import br.com.jguedes.teste.dbservice.commons.Valuable;
 
 @Entity
 @Table(name = "folha")

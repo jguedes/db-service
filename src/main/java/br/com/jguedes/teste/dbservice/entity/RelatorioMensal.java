@@ -16,8 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import br.com.jguedes.teste.dbservice.commons.Valuable;
 import br.com.jguedes.teste.dbservice.constantes.TipoMovimentacao;
-import br.com.jguedes.teste.dbservice.response.relatorio.Valuable;
 
 @Entity
 @Table(name = "relatorio_mensal")

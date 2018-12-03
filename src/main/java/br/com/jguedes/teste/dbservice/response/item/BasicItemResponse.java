@@ -1,18 +1,19 @@
-package br.com.jguedes.teste.dbservice.response.relatorio;
+package br.com.jguedes.teste.dbservice.response.item;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import br.com.jguedes.teste.dbservice.commons.Valuable;
 import br.com.jguedes.teste.dbservice.entity.Item;
 
-public class ItemFolhaEntradaResponse implements Valuable, Serializable {
+public abstract class BasicItemResponse  implements Valuable, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	protected Item item;
 
-	public ItemFolhaEntradaResponse(final Item item) {
-		this.item = item;
+	public BasicItemResponse(Item item) {
+		this.item= item;
 	}
 
 	public long getId() {
@@ -21,10 +22,6 @@ public class ItemFolhaEntradaResponse implements Valuable, Serializable {
 
 	public int getSeq() {
 		return item.getSeq();
-	}
-
-	public long getConta_id() {
-		return item.getConta_id();
 	}
 
 	public String getDiscr() {

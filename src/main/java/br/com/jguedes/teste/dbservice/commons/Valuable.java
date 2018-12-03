@@ -1,4 +1,4 @@
-package br.com.jguedes.teste.dbservice.response.relatorio;
+package br.com.jguedes.teste.dbservice.commons;
 
 import java.math.BigDecimal;
 

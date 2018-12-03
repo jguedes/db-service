@@ -1,7 +1,5 @@
 package br.com.jguedes.teste.dbservice.resource;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,24 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jguedes.teste.dbservice.entity.Folha;
-import br.com.jguedes.teste.dbservice.repository.FolhaRepository;
+import br.com.jguedes.teste.dbservice.response.folha.FolhasResponse;
+import br.com.jguedes.teste.dbservice.service.FolhaService;
 
 @RestController
 @RequestMapping(value="/rest/folha")
 public class FolhaResource {
 	
 	@Autowired
-	private FolhaRepository folhaRepository;
+	private FolhaService service;
 	
 	@GetMapping(value = "/all")
-	public List<Folha> getAll(){
-		return folhaRepository.findAll();
+	public FolhasResponse getAll(){
+		return service.getAllFolhas();
 	}
 	
 	@PostMapping(value="/save")
-	public List<Folha> persist(@RequestBody final Folha folha){
-		folhaRepository.save(folha);
-		return folhaRepository.findAll();
+	public FolhasResponse persist(@RequestBody final Folha folha){
+		return service.saveAndGetAll(folha);
 	}
 
 }
