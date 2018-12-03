@@ -8,7 +8,7 @@ import br.com.jguedes.teste.dbservice.entity.Folha;
 import br.com.jguedes.teste.dbservice.entity.Item;
 import br.com.jguedes.teste.dbservice.response.item.ItemFolhaEntradaResponse;
 
-public class FolhaEntradaResponse extends FolhaWithoutGetTipoResponse {
+public class FolhaEntradaResponse extends BasicFolhaResponse {
 
 	private static final long serialVersionUID = 1L;
 

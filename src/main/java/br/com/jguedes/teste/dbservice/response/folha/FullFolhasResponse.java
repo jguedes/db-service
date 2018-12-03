@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 import br.com.jguedes.teste.dbservice.constantes.TipoMovimentacao;
 import br.com.jguedes.teste.dbservice.entity.Folha;
 
-public class FolhasResponse {
+public class FullFolhasResponse {
 
 	private FolhasEntradaResponse folhasEntrada;
 	private FolhasSaidaResponse folhasSaida;
 
-	public FolhasResponse(List<Folha> folhas) {
+	public FullFolhasResponse(List<Folha> folhas) {
 		setFolhasEntrada(new FolhasEntradaResponse(
 				folhas.stream().filter(f -> f.getTipo() == TipoMovimentacao.ENTRADA).collect(Collectors.toList())));
 		setFolhasSaida(new FolhasSaidaResponse(

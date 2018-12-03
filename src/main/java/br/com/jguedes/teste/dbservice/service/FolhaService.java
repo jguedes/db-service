@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.jguedes.teste.dbservice.entity.Folha;
 import br.com.jguedes.teste.dbservice.repository.FolhaRepository;
-import br.com.jguedes.teste.dbservice.response.folha.FolhasResponse;
+import br.com.jguedes.teste.dbservice.response.folha.FullFolhasResponse;
 
 @Component
 public class FolhaService {
@@ -13,11 +13,11 @@ public class FolhaService {
 	@Autowired
 	private FolhaRepository rep;
 
-	public FolhasResponse getAllFolhas() {
-		return new FolhasResponse(rep.findAll());
+	public FullFolhasResponse getAllFolhas() {
+		return new FullFolhasResponse(rep.findAll());
 	}
 
-	public FolhasResponse saveAndGetAll(Folha folha) {
+	public FullFolhasResponse saveAndGetAll(Folha folha) {
 		rep.save(folha);
 		return getAllFolhas();
 	}

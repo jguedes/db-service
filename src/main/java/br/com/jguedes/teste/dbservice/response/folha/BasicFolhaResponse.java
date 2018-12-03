@@ -9,12 +9,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import br.com.jguedes.teste.dbservice.commons.Valuable;
 import br.com.jguedes.teste.dbservice.entity.Folha;
 
-public abstract class FolhaWithoutGetTipoResponse implements Serializable, Valuable {
+public abstract class BasicFolhaResponse implements Serializable, Valuable {
 
 	private static final long serialVersionUID = 1L;
 	protected Folha folha;
 
-	public FolhaWithoutGetTipoResponse(final Folha folha) {
+	public BasicFolhaResponse(final Folha folha) {
 		this.folha = folha;
 	}
 

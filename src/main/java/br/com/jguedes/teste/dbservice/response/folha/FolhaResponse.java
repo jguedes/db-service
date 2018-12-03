@@ -6,13 +6,13 @@ import java.util.Optional;
 
 import br.com.jguedes.teste.dbservice.entity.Folha;
 import br.com.jguedes.teste.dbservice.entity.Item;
-import br.com.jguedes.teste.dbservice.response.item.ItemResponse;
+import br.com.jguedes.teste.dbservice.response.item.ItemFolhaResponse;
 
-public class FolhaWithGetTipoResponse extends FolhaWithoutGetTipoResponse {
+public class FolhaResponse extends BasicFolhaResponse {
 
 	private static final long serialVersionUID = 1L;
 
-	public FolhaWithGetTipoResponse(Folha folha) {
+	public FolhaResponse(Folha folha) {
 		super(folha);
 	}
 
@@ -20,11 +20,11 @@ public class FolhaWithGetTipoResponse extends FolhaWithoutGetTipoResponse {
 		return folha.getTipo();
 	}
 
-	public List<ItemResponse> getItens() {
-		List<ItemResponse> itens = new ArrayList<>();
+	public List<ItemFolhaResponse> getItens() {
+		List<ItemFolhaResponse> itens = new ArrayList<>();
 		if (Optional.ofNullable(folha).isPresent() && Optional.ofNullable(folha.getItens()).isPresent()) {
 			for (Item item : folha.getItens()) {
-				itens.add(new ItemResponse(item));
+				itens.add(new ItemFolhaResponse(item));
 			}
 		}
 		return itens;

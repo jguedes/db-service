@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.com.jguedes.teste.dbservice.entity.Conta;
 import br.com.jguedes.teste.dbservice.entity.Item;
-import br.com.jguedes.teste.dbservice.response.item.ItemEntradaContaResponse;
+import br.com.jguedes.teste.dbservice.response.item.ItemContaEntradaResponse;
 
 public class ContaEntradaResponse extends BasicContaResponse {
 
@@ -15,10 +15,10 @@ public class ContaEntradaResponse extends BasicContaResponse {
 		super(conta);
 	}
 
-	public List<ItemEntradaContaResponse> getItens() {
-		List<ItemEntradaContaResponse> itens = new ArrayList<>();
+	public List<ItemContaEntradaResponse> getItens() {
+		List<ItemContaEntradaResponse> itens = new ArrayList<>();
 		for (Item item : conta.getItens()) {
-			itens.add(new ItemEntradaContaResponse(item));
+			itens.add(new ItemContaEntradaResponse(item));
 		}
 		return itens;
 	}

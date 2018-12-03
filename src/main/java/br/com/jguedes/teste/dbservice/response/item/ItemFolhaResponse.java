@@ -2,7 +2,7 @@ package br.com.jguedes.teste.dbservice.response.item;
 
 import br.com.jguedes.teste.dbservice.entity.Item;
 
-public abstract class ItemFolhaResponse extends BasicItemResponse {
+public class ItemFolhaResponse extends BasicItemResponse {
 
 	private static final long serialVersionUID = 1L;
 

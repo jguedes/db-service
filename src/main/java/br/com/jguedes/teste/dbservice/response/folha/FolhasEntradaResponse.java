@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.com.jguedes.teste.dbservice.entity.Folha;
 
-public class FolhasEntradaResponse extends Folhas {
+public class FolhasEntradaResponse extends BasicFolhasResponse {
 
 	private static final long serialVersionUID = 1L;
 

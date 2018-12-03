@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jguedes.teste.dbservice.entity.Folha;
-import br.com.jguedes.teste.dbservice.response.folha.FolhasResponse;
+import br.com.jguedes.teste.dbservice.response.folha.FullFolhasResponse;
 import br.com.jguedes.teste.dbservice.service.FolhaService;
 
 @RestController
@@ -19,12 +19,12 @@ public class FolhaResource {
 	private FolhaService service;
 	
 	@GetMapping(value = "/all")
-	public FolhasResponse getAll(){
+	public FullFolhasResponse getAll(){
 		return service.getAllFolhas();
 	}
 	
 	@PostMapping(value="/save")
-	public FolhasResponse persist(@RequestBody final Folha folha){
+	public FullFolhasResponse persist(@RequestBody final Folha folha){
 		return service.saveAndGetAll(folha);
 	}
 
