@@ -16,4 +16,6 @@ public interface ContaRepository extends JpaRepository<Conta, Long> {
 			"WHERE c.tipo = ?2 AND f.relatorio_mensal_id = ?1",nativeQuery = true)
 	public List<Conta> getContasByRelatorioMensalId(Long retorioId,char tipo);
 
+	public List<Conta> findByTipo(char entrada);
+
 }

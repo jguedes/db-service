@@ -3,6 +3,7 @@ package br.com.jguedes.teste.dbservice.entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -90,6 +91,7 @@ public class Conta implements Valuable, Serializable {
 	@Transient
 	@Override
 	public BigDecimal getValor() {
+		if(!Optional.ofNullable(itens).isPresent()) return BigDecimal.ZERO;
 		return itens.stream().map(Valuable::getValor).reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
 

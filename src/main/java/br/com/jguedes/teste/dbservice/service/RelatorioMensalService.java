@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.com.jguedes.teste.dbservice.commons.AnoMes;
 import br.com.jguedes.teste.dbservice.entity.RelatorioMensal;
 import br.com.jguedes.teste.dbservice.repository.RelatorioMensalRepository;
 import br.com.jguedes.teste.dbservice.response.relatorio.RelatorioMensalResponse;
@@ -61,32 +62,6 @@ public class RelatorioMensalService {
 		rm.setContasEntrada(serviceConta.getContasEntradaByRelatorioMensalId(rm.getId()));
 		rm.setContasSaida(serviceConta.getContasSaidaByRelatorioMensalId(rm.getId()));
 		return rm;
-	}
-
-}
-
-class AnoMes {
-	private Integer ano;
-	private Integer mes;
-
-	public AnoMes(Integer ano, Integer mes) {
-		this.ano = ano;
-		this.mes = mes;
-	}
-
-	public AnoMes getAnoMesAnterior() {
-		if (mes == 1) {
-			return new AnoMes(ano - 1, 12);
-		}
-		return new AnoMes(ano, mes - 1);
-	}
-
-	public Integer getAno() {
-		return ano;
-	}
-
-	public Integer getMes() {
-		return mes;
 	}
 
 }

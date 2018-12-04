@@ -15,6 +15,10 @@ public class FolhaResponse extends BasicFolhaResponse {
 	public FolhaResponse(Folha folha) {
 		super(folha);
 	}
+	
+	public Long getRelatorioMensalId(){
+		return folha.getRelatorio_mensal_id();
+	}
 
 	public char getTipo() {
 		return folha.getTipo();
