@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jguedes.teste.dbservice.entity.Item;
-import br.com.jguedes.teste.dbservice.repository.ItemRepository;
+import br.com.jguedes.teste.dbservice.response.item.ItemResponse;
+import br.com.jguedes.teste.dbservice.service.ItemService;
 
 @RestController
-@RequestMapping(value="/rest/item")
+@RequestMapping(value = "/rest/item")
 public class ItemResource {
-	
+
 	@Autowired
-	private ItemRepository itemRepository;
-	
+	private ItemService service;
+
 	@GetMapping(value = "/all")
-	public List<Item> getAll(){
-		return itemRepository.findAll();
+	public List<ItemResponse> getAll() {
+		return service.getAll();
 	}
-	
-	@PostMapping(value="/save")
-	public List<Item> persist(@RequestBody final Item item){
-		itemRepository.save(item);
-		return itemRepository.findAll();
+
+	@PostMapping(value = "/save")
+	public List<ItemResponse> persist(@RequestBody final Item item) {
+		return service.saveAndGetAll(item);
 	}
 
 }
